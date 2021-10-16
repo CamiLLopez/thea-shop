@@ -1,0 +1,31 @@
+.App-header {
+    background-color: black;
+    min-height: 1rem;
+
+}
+
+.App-link {
+    color: white;
+    text-decoration: none;
+    list-style-type: none;
+    font-size: calc(10px + 2vmin);
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+.App-link:hover {
+    color: #FFE333;
+}
+
+.list-nav {
+    display: flex;
+    flex-direction: row;
+    align-self: center;
+    
+}
+
+.list-nav-center{
+    display: flex;
+    flex-direction: row;
+    align-self: center;
+    width: 40%;
+}
