@@ -1,48 +1,100 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Item from "./Item";
 import "./ItemList.css";
+import { useState } from "react";
+
 export default function ItemList() {
-  const items = [
+  const ITEMS = [
     {
-      id: 1, //random(0, 1500),
+      id: 1,
       nombre: "Cardan",
       descripcion:
         "Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti accusantium nulla ipsum reiciendis provident amet beatae distinctio animi",
       precio: 100,
-      image: "../assets/cardan.png",
+      image: "../assets/cardan.jpg",
     },
     {
-      id: 2, // random(0, 1500),
-      nombre: "Disco de Freno",
+      id: 2,
+      nombre: "Semieje",
       descripcion:
         "Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti accusantium nulla ipsum reiciendis provident amet beatae distinctio animi",
       precio: 150,
-      image: "../assets/discoDeFreno.png",
+      image: "../assets/semieje.jpg",
     },
     {
-      id: 3, // random(0, 1500),
+      id: 3,
       nombre: "Embrague",
       descripcion:
         "Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti accusantium nulla ipsum reiciendis provident amet beatae distinctio animi",
       precio: 800,
-      image: "../assets/embrague.png",
+      image: "../assets/embrague.jpg",
     },
     {
-      id: 4, // random(0, 1500),
-      nombre: "Embrague",
+      id: 4,
+      nombre: "Limpia Parabrisas",
       descripcion:
         "Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti accusantium nulla ipsum reiciendis provident amet beatae distinctio animi",
       precio: 800,
-      image: "../assets/limpiaparabrisa.png",
+      image: "../assets/limpiaparabrisas.jpg",
+    },
+    {
+      id: 5,
+      nombre: "Arbol de levas",
+      descripcion:
+        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti accusantium nulla ipsum reiciendis provident amet beatae distinctio animi",
+      precio: 3000,
+      image: "../assets/arboldelevas.jpg",
+    },
+    {
+      id: 6,
+      nombre: "Bomba de Agua",
+      descripcion:
+        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti accusantium nulla ipsum reiciendis provident amet beatae distinctio animi",
+      precio: 2000,
+      image: "../assets/bombadeagua.jpg",
+    },
+    {
+      id: 7,
+      nombre: "Rulemanes",
+      descripcion:
+        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti accusantium nulla ipsum reiciendis provident amet beatae distinctio animi",
+      precio: 900,
+      image: "../assets/rulemanes.jpg",
     },
   ];
-  let itemUpdate=[];
-  for (const [index, value] of items.entries()) {
-    itemUpdate.push( <Item key={index} item={value} /> )
-  }
+  const [item, setItems] = useState([ITEMS]);
+  useEffect(() => {
+    let promise = new Promise((resolve, reject) =>
+      setTimeout(() => {
+        resolve(ITEMS);
+      }, 2000)
+    );
+
+    promise.then(
+      (result) => {
+        setItems(result);
+      },
+      (err) => {
+        console.log(err);
+      }
+    );
+  }, [item]);
+
+  if (item.length === 1) {
+    return (
+        <div className="snipper">
+        <button className="btn btn-dark text-nowrap" type="button">
+            <span className="spinner-border spinner-border-sm mr-10"></span>
+            Buscando productos...
+        </button>
+        </div>
+    )}
+
   return (
-    <div className="">
-      {itemUpdate}
+    <div className="card-Items">
+      {item.map((item) => (
+        <Item key={item.id} itemSelected={item} />
+      ))}
     </div>
   );
 }

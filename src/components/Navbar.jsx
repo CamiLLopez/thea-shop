@@ -7,14 +7,14 @@ export default function Navbar() {
   return (
     <>
       <Nav className="App-header" activeKey="/home">
-      <Nav.Item>
+      <Nav.Item className="list-nav">
             <Nav.Link className="Div-logo" href="/home">
               <img src="../assets/theaShop.jpg" alt="logo shop" className="App-logo"/>
             </Nav.Link>
             </Nav.Item>   
         <div className="list-nav-center"></div>
         <div className="list-nav">
-        <Nav.Item>
+        <Nav.Item className="list-nav">
             <Nav.Link className="App-link" href="/home">
               Quienes somos?
             </Nav.Link>
@@ -34,7 +34,7 @@ export default function Navbar() {
               Contacto
             </Nav.Link>
           </Nav.Item>
-          <Nav.Item>
+          <Nav.Item className="list-nav">
             <Nav.Link className="App-link" href="/home">
             <CartWidget/>
             </Nav.Link>
