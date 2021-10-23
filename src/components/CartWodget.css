@@ -1,9 +1,10 @@
-.App-logo {
-    height: 15rem;
-    width: 15rem;
-    margin: 1rem;
+.logo-carrito {
+    height: 3rem;
+    width: 3rem;
+    
   }
   
-.logoNav {
-    
+.div-carrito {
+    justify-content: end;
+    align-self: center;
 }

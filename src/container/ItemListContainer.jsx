@@ -1,11 +1,13 @@
 import Alert from "react-bootstrap/Alert";
+import ItemList from "../components/itemList";
+import { useState } from "react";
 export default function ItemListContainer(props) {
   return (
     <div>
       <div className="ItemList">
         <p>Buenos días {props.mensaje}</p>
       </div>
-      <Alert variant="secondary">
+        <Alert variant="secondary">
         <Alert.Heading className="d-flex justify-content-center">
           Bienvenido!
         </Alert.Heading>
@@ -16,6 +18,7 @@ export default function ItemListContainer(props) {
           fugiat.
         </p>
       </Alert>
+      <ItemList/>
     </div>
   );
 }

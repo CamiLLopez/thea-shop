@@ -3,7 +3,13 @@
     min-height: 1rem;
 
 }
-
+.App-logo{
+    height: 12rem;
+    width: 12rem;
+}
+.Div-logo{
+    padding: 0;
+}
 .App-link {
     color: white;
     text-decoration: none;
