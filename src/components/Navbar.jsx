@@ -1,52 +1,40 @@
 import React from "react";
-import { NavLink, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import CartWidget from "./CartWidget";
 import Nav from "react-bootstrap/Nav";
 import "./Navbar.css";
-import ItemDetailContainer from "../container/ItemDetailContainer";
 
 export default function Navbar() {
+  
+  const categories = [
+    { id: 'todoslosproductos', address: '/', text: 'Todos los productos' },
+    { id: 'repuestos', address: '/category/repuestos', text: 'Repuestos' },
+    { id: 'accesorios', address: '/category/accesorios', text: 'Accesorios' },
+    { id: 'embragues', address: '/category/embragues', text: 'Embragues' },
+  ]; 
+  
   return (
     <>
-      <Nav className="App-header" activeKey="/home">
-        <Nav.Item className="list-nav">
-          <Link className="Div-logo" path={`/`}>
-            <img
-              src="../assets/theaShop.jpg"
-              alt="logo shop"
-              className="App-logo"
-            />
-          </Link>
-        </Nav.Item>
+    <Nav className="App-header" activeKey="/home"> 
+          <Nav.Item className="list-nav">
+              <Link className="Div-logo" to={`/`}>
+                <img
+                  src="../assets/theaShop.jpg"
+                  alt="logo shop"
+                  className="App-logo"
+                />
+              </Link>
+              </Nav.Item> 
         <div className="list-nav-center"></div>
-        <div className="list-nav">
-          <Nav.Item className="list-nav">
-            <Link className="App-link" to={`/`}>
-              Todos los productos
+    {categories.map((cat) => {
+        return (
+          <Nav.Item className="list-nav" key={cat.id}>
+            <Link className="App-link" to={cat.address} exact  activeClassName="activeClass">
+            {cat.text}
             </Link>
-          </Nav.Item>
-          <Nav.Item className="list-nav">
-            <Link className="App-link" to={`/category/`}>
-              Repuestos
-            </Link>
-          </Nav.Item>
-          <Nav.Item className="list-nav">
-            <Link className="App-link" to={`/category/`}>
-              Accesorios
-            </Link>
-          </Nav.Item>
-          <Nav.Item className="list-nav">
-            <Link className="App-link" to={`/category/`}>
-              Embragues
-            </Link>
-          </Nav.Item>
-          <Nav.Item className="list-nav">
-            <Link className="App-link" to="/cart">
-              <CartWidget />
-            </Link>
-          </Nav.Item>
-        </div>
-      </Nav>
+          </Nav.Item>);})};
+      <CartWidget/>     
+    </Nav>    
     </>
   );
 }

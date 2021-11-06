@@ -19,7 +19,7 @@ function App() {
         <ItemListContainer/>
         </Route>
       <Route path="/item/:id" component={ItemDetailContainer} />
-      <Route path="/category/:id" component={ItemListContainer}>
+      <Route path="/category/:catId" component={ItemListContainer}>
       </Route>
     </Switch>
   </BrowserRouter>

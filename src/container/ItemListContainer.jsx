@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import ItemList from "../components/ItemList";
+import { useParams } from "react-router-dom";
 
 export const items = [
   {
@@ -69,36 +70,38 @@ export const items = [
 export default function ItemListContainer() {
 
   const [item, setItems] = useState([items]);
+  const [loader, setLoader] = useState(true);
+  const { catId } = useParams();
+
+
   useEffect(() => {
-    let promise = new Promise((resolve, reject) =>
+    setLoader(true);
+    const getItems = new Promise((resolve, reject) =>
       setTimeout(() => {
         resolve(items);
       }, 2000)
     );
 
-    promise.then(
+    getItems.then(
       (result) => {
-        setItems(result);
+        catId ? setItems(result.filter((i) => i.category == catId)): setItems(result);
       },
       (err) => {
         console.log(err);
       }
     );
-  }, [item]);
+    getItems.finally(() => setLoader(false));
+  }, [catId]);
 
-  if (item.length === 1) {
-    return (
-        <div className="snipper">
-        <button className="btn btn-dark text-nowrap" type="button">
-            <span className="spinner-border spinner-border-sm mr-10"></span>
-            Buscando productos...
-        </button>
-        </div>
-    )}
-
-  return (
+  return loader ? (
+    <div className="snipper">
+      <button className="btn btn-dark text-nowrap" type="button">
+        <span className="spinner-border spinner-border-sm mr-10"></span>
+        Buscando productos...
+      </button>
+    </div>
+  ) : (
     <ItemList itemSelected={item}/>
   );
+
 }
-
-
