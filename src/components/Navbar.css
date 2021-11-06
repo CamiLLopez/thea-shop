@@ -4,9 +4,10 @@
 
 }
 .App-logo{
-    height: 12rem;
-    width: 12rem;
+    height: 15rem;
+    width: 15rem;
 }
+
 .Div-logo{
     padding: 0;
 }
@@ -25,13 +26,14 @@
 .list-nav {
     display: flex;
     flex-direction: row;
+    align-content: flex-end;
     align-self: center;
-    
+    padding: 0.5rem;
 }
 
 .list-nav-center{
     display: flex;
     flex-direction: row;
-    align-self: center;
-    width: 40%;
+    align-self: flex-end;
+    width: 37%;
 }

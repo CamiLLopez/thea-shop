@@ -3,7 +3,10 @@
     width: 3rem;
     
   }
-  
+ .logo-carrito:hover{
+    height: 3.5rem;
+    width: 3.5rem;
+ }
 .div-carrito {
     justify-content: end;
     align-self: center;

@@ -1,5 +1,6 @@
 import React from "react";
-import "./CartWodget.css"
+import "./CartWidget.css"
+
 export default function CartWidget(){
     return(
         <div className="div-carrito" >
