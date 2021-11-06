@@ -1,100 +1,19 @@
-import React, { useEffect } from "react";
-import Item from "./Item";
+import React from "react";
 import "./ItemList.css";
-import { useState } from "react";
+import Item from './Item';
 
-export default function ItemList() {
-  const ITEMS = [
-    {
-      id: 1,
-      nombre: "Cardan",
-      descripcion:
-        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti accusantium nulla ipsum reiciendis provident amet beatae distinctio animi",
-      precio: 100,
-      image: "../assets/cardan.jpg",
-    },
-    {
-      id: 2,
-      nombre: "Semieje",
-      descripcion:
-        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti accusantium nulla ipsum reiciendis provident amet beatae distinctio animi",
-      precio: 150,
-      image: "../assets/semieje.jpg",
-    },
-    {
-      id: 3,
-      nombre: "Embrague",
-      descripcion:
-        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti accusantium nulla ipsum reiciendis provident amet beatae distinctio animi",
-      precio: 800,
-      image: "../assets/embrague.jpg",
-    },
-    {
-      id: 4,
-      nombre: "Limpia Parabrisas",
-      descripcion:
-        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti accusantium nulla ipsum reiciendis provident amet beatae distinctio animi",
-      precio: 800,
-      image: "../assets/limpiaparabrisas.jpg",
-    },
-    {
-      id: 5,
-      nombre: "Arbol de levas",
-      descripcion:
-        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti accusantium nulla ipsum reiciendis provident amet beatae distinctio animi",
-      precio: 3000,
-      image: "../assets/arboldelevas.jpg",
-    },
-    {
-      id: 6,
-      nombre: "Bomba de Agua",
-      descripcion:
-        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti accusantium nulla ipsum reiciendis provident amet beatae distinctio animi",
-      precio: 2000,
-      image: "../assets/bombadeagua.jpg",
-    },
-    {
-      id: 7,
-      nombre: "Rulemanes",
-      descripcion:
-        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti accusantium nulla ipsum reiciendis provident amet beatae distinctio animi",
-      precio: 900,
-      image: "../assets/rulemanes.jpg",
-    },
-  ];
-  const [item, setItems] = useState([ITEMS]);
-  useEffect(() => {
-    let promise = new Promise((resolve, reject) =>
-      setTimeout(() => {
-        resolve(ITEMS);
-      }, 2000)
-    );
 
-    promise.then(
-      (result) => {
-        setItems(result);
-      },
-      (err) => {
-        console.log(err);
-      }
-    );
-  }, [item]);
+export default function ItemList(props) {
 
-  if (item.length === 1) {
+    let itemList = props.itemSelected;
+  
     return (
-        <div className="snipper">
-        <button className="btn btn-dark text-nowrap" type="button">
-            <span className="spinner-border spinner-border-sm mr-10"></span>
-            Buscando productos...
-        </button>
-        </div>
-    )}
-
-  return (
-    <div className="card-Items">
-      {item.map((item) => (
-        <Item key={item.id} itemSelected={item} />
+      
+      <div className="card-Items">
+      {itemList.map((item) => (
+        <Item key={item.id} item={item} />
       ))}
     </div>
-  );
-}
+    );
+  }
+

@@ -1,7 +1,7 @@
 import './App.css';
 import Navbar from './components/Navbar';
 import ItemListContainer from './container/ItemListContainer';
-import { useState } from "react";
+import {BrowserRouter, Switch, Route} from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Home from './components/home';
 
@@ -10,9 +10,17 @@ function App() {
 
 
   return  <>
-    <Navbar />
-    <Home mensaje={'Cliente!'} />
-    <ItemListContainer/>   
+  <BrowserRouter>
+  <Navbar />
+    <Switch>
+      <Route exact path="/">
+        <Home mensaje={'Cliente!'} />
+      </Route>
+      <Route exact path="/productos">
+        <ItemListContainer/>   
+      </Route>
+    </Switch>
+  </BrowserRouter>
   </>;   
 }
 

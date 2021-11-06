@@ -1,8 +1,10 @@
 import React from "react";
 import { Card,Button } from "react-bootstrap";
 import "./item.css";
+
 export default function Item(props) {
-  let item = props.itemSelected;
+  
+  let item = props.item;
 
   return (
     <Card className="card"style={{ width: "18rem" }}>
