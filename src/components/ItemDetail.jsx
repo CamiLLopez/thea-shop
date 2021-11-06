@@ -1,5 +1,7 @@
+import { height } from 'dom-helpers';
 import React from 'react';
 import { Card, Button, Alert } from 'react-bootstrap';
+import './itemDetail.css';
 
 export const ItemDetail = (props) => {
  
@@ -10,15 +12,16 @@ export const ItemDetail = (props) => {
     </Alert>
   ) : (
     <>
-    <div>
-    <Card className="card"style={{ width: "50%" }}>
-      <Card.Img className="img-card"variant="top" src={item.image} />
+    
+    <div className="container">
+    <Card className="card-details"style={{ width: "40%", height: "5%" }}>
+      <Card.Img className="img" src={item.image} />
       <Card.Body>
         <Card.Title className="img-title">{item.name}</Card.Title>
         <Card.Text className="img-text">
           {item.description}
         </Card.Text>
-        <p>$ {item.price}</p>
+        <strong><p>$ {item.price}</p></strong>
         <Button variant="secondary">Añadir al carrito</Button>
       </Card.Body>
     </Card>

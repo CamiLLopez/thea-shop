@@ -15,9 +15,6 @@ export default function Item(props) {
         <Card.Text className="img-text">
         Código: {item.id}
         </Card.Text>
-        <Card.Text className="img-text">
-          {item.description}
-        </Card.Text>
         <p>${item.price}</p>
         <Button variant="secondary" href={`/item/${item.id}`}> Ver detalles</Button>
       </Card.Body>
