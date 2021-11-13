@@ -14,7 +14,8 @@ export const ItemDetail = (props) => {
   
       const agregar = (props)=>{
           setBuy(true)
-          addItem({item}, props.unidades)
+          console.log(props.item);
+          addItem(props.item, props.unidades)
           return<>
             <AlertDismissible message="agregaste ${props.unidades} al carrito"/>
           </>

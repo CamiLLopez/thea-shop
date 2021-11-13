@@ -43,7 +43,7 @@ const ItemCount = (props) =>{
                 <p><strong>Stock disponible {stock}</strong></p>
             </div>
             <div>
-            <Button variant="secondary" onClick={()=>props.addItem({unidades})}>Añadir al carrito </Button>
+            <Button variant="secondary" onClick={()=>props.addItem({item, unidades})}>Añadir al carrito </Button>
             </div>
         </div>
     </>
