@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { ItemDetail } from "../components/ItemDetail";
-import { items } from "./ItemListContainer";
+import { items } from "../data/data";
 import { useParams } from "react-router-dom";
+import SpinnerMessage from "../components/spinner";
 
 export const ItemDetailContainer = () => {
   const [item, setItem] = useState({});
@@ -25,12 +26,7 @@ export const ItemDetailContainer = () => {
   }, [id]);
 
   return loader ? (
-    <div className="snipper">
-      <button className="btn btn-dark text-nowrap" type="button">
-        <span className="spinner-border spinner-border-sm mr-10"></span>
-        Buscando productos...
-      </button>
-    </div>
+    <SpinnerMessage message={"Buscando detalle de producto..."}></SpinnerMessage>
   ) : (
     <ItemDetail item={item} />
   );

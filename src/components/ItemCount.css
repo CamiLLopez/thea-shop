@@ -1,0 +1,14 @@
+.ItemCount{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .button-ItemCount {
+    display: flex;
+  }
+  
+  .button-ItemCount button {
+    margin: 0px 20px
+  }

@@ -5,13 +5,15 @@ import { ItemDetailContainer } from './container/ItemDetailContainer';
 import {BrowserRouter, Switch, Route} from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Home from './components/home';
-
+import {CartFuncion} from './context/CartContext'
+import Cart from './components/Cart';
 
 function App() {
 
 
   return  <>
   <BrowserRouter>
+  <CartFuncion>
   <Navbar />
     <Switch>
       <Route exact path="/">
@@ -22,6 +24,7 @@ function App() {
       <Route path="/category/:catId" component={ItemListContainer}>
       </Route>
     </Switch>
+    </CartFuncion>
   </BrowserRouter>
   </>;   
 }
