@@ -1,6 +1,4 @@
 import React, {useState} from "react";
-import AlertDismissible from "../components/Alert";
-
 const Context = React.createContext()
 
 const CartFuncion = ({children}) =>{
