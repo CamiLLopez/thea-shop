@@ -7,50 +7,47 @@ const CartFuncion = ({children}) =>{
     const [unidades, setUnidades] = useState(0)
     const [total, setTotal] = useState(0)
 
-    const addItem = (producto, cantidad) =>{
-        const itemExiste=cart.find(item=>item.id===producto.id)
+    const addItem = (item, unidades) =>{
+        const itemExiste=cart.find(item=>item.id===item.id)
         if(!itemExiste){
-            setCart([...cart, {id:producto.id, nombre:producto.nombre, precio:producto.precio, cantidad:cantidad, subtotal:(producto.precio*cantidad)}])
-            setTotal(total+(producto.precio*cantidad))
+            setCart([...cart, {id:item.id, nombre: item.name, precio: item.price, cantidad: unidades, subtotal: (item.price*unidades)}])
+            setTotal(total+(item.price*unidades))
             setUnidades(unidades+1)
         } else {
             const cartAux=cart.map((item)=>{
-                if(item.id===producto.id){
-                    item.cantidad+=cantidad
-                    item.subtotal+=(producto.precio*cantidad)
+                if(item.id===item.id){
+                    item.cantidad+=unidades
+                    item.subtotal+=(item.price*unidades)
                 }
                 return item
             })
             setCart(cartAux)
-            setTotal(total+(producto.precio*cantidad))
+            setTotal(total+(item.price*unidades))
         }
     } 
-   /* const deleteItem = (producto, cantidad) => {
-        const itemExiste=cart.find(item=>item.id===producto.id)
+   const deleteItem = (item, unidades) => {
+        const itemExiste=cart.find(item=>item.id===item.id)
         if(itemExiste){
-            setCart([...cart, {id:producto.id, nombre:producto.nombre, precio:producto.precio, cantidad:cantidad, subtotal:(producto.precio*cantidad)}])
-            setTotal(total+(producto.precio*cantidad))
-            //setUnidades(unidades+1)
+            setCart([...cart, {id:item.id, nombre:item.name, precio:item.price, cantidad:unidades, subtotal:(item.price*unidades)}])
+            setTotal(total+(item.price*unidades))
+            setUnidades(unidades-1)
         } else {
             const cartAux=cart.map((item)=>{
-                if(item.id===producto.id){
-                    item.cantidad+=cantidad
-                    item.subtotal+=(producto.precio*cantidad)
+                if(item.id===item.id){
+                    item.cantidad+=unidades
+                    item.subtotal+=(item.price*unidades)
                 }
                 return item
             })
             setCart(cartAux)
-            setTotal(total+(producto.precio*cantidad))
+            setTotal(total+(item.price*unidades))
         }
-
-
-    }*/
+    }
     
-    return <Context.Provider value={{cart, unidades, total, addItem}}>
+    return <Context.Provider value={{cart, unidades, total, deleteItem}}>
         {children}
     </Context.Provider>
 
     }
-
 
 export {CartFuncion, Context }

@@ -1,9 +1,10 @@
 import React,{useState, useContext}  from 'react';
-import { Card, Alert } from 'react-bootstrap';
+import { Card, Button, Alert } from 'react-bootstrap';
 import './itemDetail.css';
 import ItemCount from "./ItemCount";
 import { Link } from "react-router-dom";
 import { Context } from "../context/CartContext";
+import AlertDismissible from './Alert';
 
 export const ItemDetail = (props) => {
   
@@ -14,8 +15,9 @@ export const ItemDetail = (props) => {
       const agregar = (props)=>{
           setBuy(true)
           addItem({item}, props.unidades)
-          alert(`agregaste ${props.unidades} al carrito`)
-  
+          return<>
+            <AlertDismissible message="agregaste ${props.unidades} al carrito"/>
+          </>
       }
 
 
@@ -34,7 +36,7 @@ export const ItemDetail = (props) => {
           {item.description}
         </Card.Text>
         <strong><p>$ {item.price}</p></strong>
-        {!buy ? <ItemCount addItem={agregar}/> : <Link to='/cart'><button>TErminar compra</button></Link>}
+        {!buy ? <ItemCount addItem={agregar} item={item} /> : <Link to='/cart'><Button variant="secondary">Finalizar Compra</Button></Link>}
       </Card.Body>
     </Card>
     

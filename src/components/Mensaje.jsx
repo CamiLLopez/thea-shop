@@ -1,12 +1,12 @@
 import Alert from "react-bootstrap/Alert";
 
 
-export default function Home(props) {
+export default function Mensaje(props) {
     
   return (
       <Alert variant="light">
         <Alert.Heading className="d-flex justify-content-center">
-        <p>Buenos días {props.mensaje}</p>
+        <p>{props.mensaje}</p>
         </Alert.Heading>
         <p>
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi quia,

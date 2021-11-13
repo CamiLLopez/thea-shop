@@ -7,6 +7,7 @@ export const items = [
         "Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti accusantium nulla ipsum reiciendis provident amet beatae distinctio animi",
       price: 100,
       image: "../assets/cardan.jpg",
+      stock: 5
     },
     {
       id: 2,
@@ -16,6 +17,7 @@ export const items = [
         "Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti accusantium nulla ipsum reiciendis provident amet beatae distinctio animi",
       price: 150,
       image: "../assets/semieje.jpg",
+      stock: 7
     },
     {
       id: 3,
@@ -25,6 +27,7 @@ export const items = [
         "Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti accusantium nulla ipsum reiciendis provident amet beatae distinctio animi",
       price: 800,
       image: "../assets/embrague.jpg",
+      stock: 1
     },
     {
       id: 4,
@@ -34,6 +37,7 @@ export const items = [
         "Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti accusantium nulla ipsum reiciendis provident amet beatae distinctio animi",
       price: 800,
       image: "../assets/limpiaparabrisas.jpg",
+      stock: 51
     },
     {
       id: 5,
@@ -43,6 +47,7 @@ export const items = [
         "Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti accusantium nulla ipsum reiciendis provident amet beatae distinctio animi",
       price: 3000,
       image: "../assets/arboldelevas.jpg",
+      stock: 1
     },
     {
       id: 6,
@@ -52,6 +57,7 @@ export const items = [
         "Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti accusantium nulla ipsum reiciendis provident amet beatae distinctio animi",
       price: 2000,
       image: "../assets/bombadeagua.jpg",
+      stock: 10
     },
     {
       id: 7,
@@ -61,6 +67,7 @@ export const items = [
         "Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti accusantium nulla ipsum reiciendis provident amet beatae distinctio animi",
       price: 900,
       image: "../assets/rulemanes.jpg",
+      stock: 9
     },
   ];
 
