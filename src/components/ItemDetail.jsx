@@ -13,14 +13,11 @@ export const ItemDetail = (props) => {
       const {addItem} = useContext(Context)
   
       const agregar = (props)=>{
-          setBuy(true)
+          setBuy(!buy)
           console.log(props.item);
           addItem(props.item, props.unidades)
-          return<>
-            <AlertDismissible message="agregaste ${props.unidades} al carrito"/>
-          </>
+          alert(`Agregaste  ${props.unidades} elemento al carrito`);
       }
-
 
     return !item ? (
     <Alert variant="warning">
@@ -37,7 +34,7 @@ export const ItemDetail = (props) => {
           {item.description}
         </Card.Text>
         <strong><p>$ {item.price}</p></strong>
-        {!buy ? <ItemCount addItem={agregar} item={item} /> : <Link to='/cart'><Button variant="secondary">Finalizar Compra</Button></Link>}
+        {!buy ? <ItemCount addItem={agregar} item={item} /> : <div> <Link to='/cart'><Button variant="secondary">Finalizar Compra</Button></Link> <Link to='/'><Button variant="secondary">Seguir comprando</Button></Link></div>}
       </Card.Body>
     </Card>
     

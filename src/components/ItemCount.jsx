@@ -12,19 +12,16 @@ const ItemCount = (props) =>{
     const handleStock={
         sumaStock:()=>{
             if(stock===0){
-                return <>
-                <AlertDismissible message="Lo sentimos, no hay mas stock de este producto!"/>
-                </>
+                alert("Lo sentimos, no hay mas stock de este producto!");
             } else {
                 setUnidades(unidades+1)
                 setStock(stock-1)
             }
         },
         restaStock:()=>{
-            if(unidades==0){
-                return <>
-                <AlertDismissible message="No se pueden seleecionar menos de 0 unidades!"/>
-                </>
+            if(unidades===0){
+                alert("No se pueden seleecionar menos de 0 unidades!");
+    
             } else {
                 setUnidades(unidades-1)
                 setStock(stock+1)
