@@ -20,7 +20,7 @@ export const ItemDetailContainer = () => {
     getItems
       .then((res) => {
           console.log(id);
-        setItem(res.find((i) => i.id == id));
+        setItem(res.find((i) => i.id === id));
       })
       .finally(() => setLoader(false));
   }, [id]);

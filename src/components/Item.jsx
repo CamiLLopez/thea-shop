@@ -1,5 +1,6 @@
 import React from "react";
 import { Card, Button } from "react-bootstrap";
+import { Link } from "react-router-dom";
 
 import "./item.css";
 
@@ -16,7 +17,7 @@ export default function Item(props) {
         Código: {item.id}
         </Card.Text>
         <p>${item.price}</p>
-        <Button variant="secondary" href={`/item/${item.id}`}> Ver detalles</Button>
+        <Button as={Link} variant="secondary" to={`/item/${item.id}`}> Ver detalles</Button>
       </Card.Body>
     </Card>
   );

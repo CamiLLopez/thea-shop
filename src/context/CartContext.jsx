@@ -6,33 +6,33 @@ const CartFuncion = ({children}) =>{
     const [unidades, setUnidades] = useState(0)
     const [total, setTotal] = useState(0)
 
-    const addItem = (item, unidades) =>{
-        const itemExiste=cart.find(item=>item.id===item.id)
+    const addItem = (productos, unidades) =>{
+        const itemExiste=cart.find(item=>item.id===productos.id)
         if(!itemExiste && unidades!==0){
-            setCart([...cart, {id:item.id, nombre: item.name, precio: item.price, cantidad: unidades, subtotal: (item.price*unidades)}])
-            setTotal(total+(item.price*unidades))
+            setCart([...cart, {id:productos.id, nombre: productos.name, precio: productos.price, cantidad: unidades, subtotal: (productos.price*unidades)}])
+            setTotal(total+(productos.price*unidades))
             setUnidades(unidades+1)
         } 
-        else if(unidades==0){
+        else if(unidades===0){
            alert("No se pueden seleecionar menos de 0 unidades!");
         }else {
             const cartAux=cart.map((item)=>{
-                if(item.id===item.id){
-                    item.cantidad+=unidades
-                    item.subtotal+=(item.price*unidades)
+                if(item.id===productos.id){
+                    productos.cantidad+=unidades
+                    productos.subtotal+=(productos.price*unidades)
                 }
                 return item
             })
             setCart(cartAux)
-            setTotal(total+(item.price*unidades))
+            setTotal(total+(productos.price*unidades))
         }
     } 
-   const deleteItem = (item) => {
-        const itemExiste=cart.find(item=>item.id===item.id)
+   const deleteItem = (productos) => {
+        const itemExiste=cart.find(item=>item.id===productos.id)
         if(itemExiste){
-            let cartFiltered = cart.filter((e)=> e.id != item.id);
+            let cartFiltered = cart.filter((e)=> e.id !== productos.id);
             setCart([cartFiltered])
-            setTotal(total+(item.price * (unidades - itemExiste.cantidad)))
+            setTotal(total+(productos.price * (unidades - itemExiste.cantidad)))
             setUnidades(unidades-itemExiste.cantidad)
         } 
     }

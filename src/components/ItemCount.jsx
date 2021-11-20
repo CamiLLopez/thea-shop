@@ -5,8 +5,8 @@ import './ItemCount.css';
 
 const ItemCount = (props) =>{
 
-    let item = props.item;      
-    const [stock, setStock] = useState(item.stock)
+    let producto = props.item;      
+    const [stock, setStock] = useState(producto.stock)
     const [unidades, setUnidades] = useState(0)
 
     const handleStock={
@@ -40,7 +40,7 @@ const ItemCount = (props) =>{
                 <p><strong>Stock disponible {stock}</strong></p>
             </div>
             <div>
-            <Button variant="secondary" onClick={()=>props.addItem({item, unidades})}>Añadir al carrito </Button>
+            <Button variant="secondary" onClick={()=>props.addItem({producto, unidades})}>Añadir al carrito </Button>
             </div>
         </div>
     </>

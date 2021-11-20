@@ -22,7 +22,7 @@ export default function ItemListContainer() {
 
     getItems.then(
       (result) => {
-        catId ? setItems(result.filter((i) => i.category == catId)): setItems(result);
+        catId ? setItems(result.filter((i) => i.category === catId)): setItems(result);
       },
       (err) => {
         console.log(err);
